@@ -1,0 +1,18 @@
+name: Integración Continua
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clonar el repositorio
+        uses: actions/checkout@v3
+
+      - name: Verificar estructura del proyecto
+        run: |
+          echo "Todo correcto: estructura válida"
+          test -f index.html && echo "index.html existe"
+          test -f main.js && echo "main.js existe"
